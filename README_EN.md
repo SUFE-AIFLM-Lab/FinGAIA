@@ -3,7 +3,7 @@
   
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version: 1.0](https://img.shields.io/badge/Version-1.0-blue.svg) ![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)                                                                                                            
 
-[📃Paper]()
+[📃Paper](./FinGAIA.pdf)
 [🌐Data](https://huggingface.co/datasets/SUFE-AIFLM-Lab/FinGAIA)
 
 [简体中文](./README.md) | [English](./README_EN.md) 
