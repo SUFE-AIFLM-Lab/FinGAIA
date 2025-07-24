@@ -5,7 +5,7 @@
    ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version: 1.0](https://img.shields.io/badge/Version-1.0-blue.svg) ![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)                                                                                                            
 
 <!-- 论文链接 -->
-   [📃论文](./FinGAIA.pdf)
+   [📃论文](https://arxiv.org/abs/2507.17186)
 <!-- 数据链接 -->
    [🌐数据](https://huggingface.co/datasets/SUFE-AIFLM-Lab/FinGAIA)
 
