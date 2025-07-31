@@ -7,7 +7,7 @@
 <!-- 论文链接 -->
    [📃论文](https://arxiv.org/abs/2507.17186)
 <!-- 数据链接 -->
-   [🌐数据](https://huggingface.co/datasets/SUFE-AIFLM-Lab/FinGAIA)
+   [🌐数据](https://drive.google.com/drive/folders/1JmCCZKEveFKmEOBRzNF2RL7hdDnJd4Ob?usp=sharing)
 
 <!-- 语言切换链接 -->
    [简体中文](./README.md) | [English](./README_EN.md) 
