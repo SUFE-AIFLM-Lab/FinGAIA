@@ -4,10 +4,8 @@
 <!-- 徽章部分 -->
    ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version: 1.0](https://img.shields.io/badge/Version-1.0-blue.svg) ![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)                                                                                                            
 
-<!-- 论文链接 -->
-   [📃论文](https://arxiv.org/abs/2507.17186)
-<!-- 数据链接 -->
-   [🌐数据](https://huggingface.co/datasets/SUFE-AIFLM-Lab/FinGAIA)
+<!-- 论文链接和数据 -->
+   [📃论文](https://arxiv.org/abs/2507.17186) | [🌐数据](https://huggingface.co/datasets/SUFE-AIFLM-Lab/FinGAIA)
 
 <!-- 语言切换链接 -->
    [简体中文](./README.md) | [English](./README_EN.md) 
@@ -19,7 +17,7 @@ AI Agent的蓬勃发展为自动化各个领域的复杂任务带来了前所未
 ---
 # 📌 目录<a name="toc"></a>
 ## FinGAIA
-- [为什么需要Fin-GAIA](#why)
+- [为什么需要FinGAIA](#why)
 - [场景应用](#application)
   - [客户数据分析](#客户数据分析)
   - [交易风险评估](#交易风险评估)
@@ -42,16 +40,49 @@ AI Agent的蓬勃发展为自动化各个领域的复杂任务带来了前所未
 ### 💡 为什么需要FinGAIA <a name="why"></a> 
 长期以来，对AI的评估多局限于孤立的知识问答，这难以反映其在金融行业实际工作中的应用潜力。金融业务的复杂性在于，它并非一次简单的问答，而是一个涉及“**信息获取、数据处理、分析推理、决策判断**”的完整闭环。现有的评测基准存在明显局限：
 * **通用智能体基准的领域特异性缺失**：如GAIA、AgentBench等主流基准，缺乏对金融领域专业性、数据动态性和强合规约束的考量。
-* **金融领域基准的任务单一性局限**：如Fin-Eval、FinQA等，多局限于问答、知识理解等基础层面，难以测试AI在真实金融工作流中的复杂多步骤规划与工具协同能力。
+* **金融领域基准的任务单一性局限**：如FinQA，CFLUE等，多局限于问答、知识理解等基础层面，难以测试AI在真实金融工作流中的复杂多步骤规划与工具协同能力。
 * **端到端代理框架评估的缺位**：现有研究多侧重于底层大模型或单一插件的性能，缺乏对完整AI Agent框架在业务流程中整体表现的系统性评估。
-为应对这些挑战，Fin-GAIA设计构建了三级分层的能力评测体系，涵盖三个难度等级与八个典型金融业务场景，分别对应智能体在基础理解、分析决策、战略推理等层次的能力要求。
+为应对这些挑战，FinGAIA设计构建了三级分层的能力评测体系，涵盖三个难度等级与八个典型金融业务场景，分别对应智能体在基础理解、分析决策、战略推理等层次的能力要求。
 
 ### 🔬 场景应用 <a name="application"></a> 
-FinGAIA共包含407个任务，涵盖了证券、基金、银行、保险、期货、信托和资产管理七个主要金融子领域，以确保评测的全面性。这些任务根据金融领域专家的广泛讨论设计，并基于真实世界的金融数据构建，经过专业筛选和结构化处理，以确保其真实性、相关性和评估效用 。
-<div align="left">
-  <img src="image/行业占比.png" width="400px" height="450px"/>
+#### 分级体系
+FinGAIA在任务设计上采用分级体系，根据任务复杂性、所需步骤数、工具组合深度及金融推理维度，将问题划分为三级难度
+<div align="middle">
+  <img src="image/Level123.jpg" width="400px" height="450px"/>
   <br />
   <br /></div>
+
+#### 数据来源
+FinGAIA的数据基础涵盖多类权威与真实场景数据，确保问题的专业性与可追溯性，主要包括以下来源：
+<div align="middle">
+  <img src="image/数据来源.png" width="400px" height="450px"/>
+  <br />
+  <br /></div>
+
+#### 工具分类
+FinGAIA要求系统将四大金融核心能力映射至底层基础技能，包括网页浏览（获取实时金融数据）、多类型文件处理、多模态能力、代码能力及计算能力。此外，系统需具备问题语义正确理解、多步逻辑推理及工具协同调用能力，例如从财报中提取数据后结合市场新闻动态分析指标变化原因。
+
+<div align="middle">
+  <img src="image/工具分类.png" width="400px" height="450px"/>
+  <br />
+  <br /></div>
+
+#### 文件类型
+在文件处理能力中， FinGAIA要求Agent要能够处理多种类型文件数据，包含：
+CSV，
+XML，
+JSON, 
+JSONLD，
+PowerPoint，
+Word，
+Text， 
+MP3，
+PDB。
+<div align="middle">
+  <img src="image/文件类型.png" width="400px" height="450px"/>
+  <br />
+  <br /></div>
+
 
 | Scenario Depth        | Financial Scenario                  | Questions |
 |-----------------------|-------------------------------------|-----------|
@@ -67,11 +98,6 @@ FinGAIA共包含407个任务，涵盖了证券、基金、银行、保险、期�
 |                       |   Market Trend Forecasting          | 51        |
 |                       |   All                               | 133       |
 | **FinGAIA**           | **All**                             | **407**   |
-
-我们采用分层评估框架，将任务划分为基础业务分析、资产决策支持、战略风控管理，分别对应不同的认知复杂度和操作要求 。
-Level 1：基础业务分析层，着重评估智能体对金融基础知识、多模态金融信息的处理能力；
-Level 2：资产决策支持层，聚焦对中等复杂度任务的信息整合、逻辑推理与工具使用；
-Level 3：战略风控管理层，面向高复杂度、多工具协同与策略规划任务，全面考察模型在真实金融语境下的推理能力与专业性。   (金融子领域+八大场景示例)
 
 #### 客户数据分析
 客户数据分析主要通过审查客户信息来了解其数据。这项工作的核心是识别模式和洞察力，从而为有针对性的市场营销策略、产品开发和个性化客户体验提供信息。通过此分析，金融机构能够优化其产品并建立更牢固的客户关系。以下是客户数据分析的任务示例：
@@ -173,7 +199,7 @@ Level 3：战略风控管理层，面向高复杂度、多工具协同与策略�
 
 ## 🏆 性能评估
 ### 核心能力考察
-FinGAIA系统地整合了行业知识、工具利用和任务复杂性三个核心维度，覆盖了从基础信息检索、多模态文档分析到基于代码的计算和协调多工具、多步骤决策制定的完整金融工作流程 。解决Fin-GAIA任务需要AI智能体具备并协同多种底层能力。
+FinGAIA系统地整合了行业知识、工具利用和任务复杂性三个核心维度，覆盖了从基础信息检索、多模态文档分析到基于代码的计算和协调多工具、多步骤决策制定的完整金融工作流程 。解决FinGAIA任务需要AI智能体具备并协同多种底层能力。
 
 <div align="center">
   <img src="image/能力占比.png" width="550px" height="500px"/>
@@ -205,6 +231,7 @@ FinGAIA系统地整合了行业知识、工具利用和任务复杂性三个核�
 | Human Expert                   | 82.5                  | 88.3  | 85.1           | 90.2  | 79.6  | 92.7           | 83.7  | 75.8  | 84.7  |
 
 
+
 **一个更具体的测评例子：** 这个例子清晰地展示了一个典型的FinGAIA问题如何要求智能体首先理解并处理一个本地CSV文件，然后调用代码（Python）执行特定的统计检验（ADF检验和EG协整检验），最终得出两个独立的数值答案。它考察了文件处理、代码执行和逻辑推理的综合能力。
 
 <div align="center">
@@ -233,7 +260,7 @@ FinGAIA系统地整合了行业知识、工具利用和任务复杂性三个核�
 
 ## 🚀 未来展望 <a name="future"></a> 
 
-Fin-GAIA的测试结果传递出一个清晰的信号：对于金融行业而言，单纯提升大语言模型的知识储备已不足够。**如何让模型学会像人一样熟练、协同地使用各种分析工具，才是决定其能否成为可靠生产力的关键**。
+FinGAIA的测试结果传递出一个清晰的信号：对于金融行业而言，单纯提升大语言模型的知识储备已不足够。**如何让模型学会像人一样熟练、协同地使用各种分析工具，才是决定其能否成为可靠生产力的关键**。
 我们计划：
 * **开放数据集**：发布 **150道带注释的开发者问题集**。
 * **维护排行榜**：以排行榜的形式，持续追踪并展示全球顶尖AI智能体在金融领域的表现。
@@ -245,13 +272,13 @@ Fin-GAIA的测试结果传递出一个清晰的信号：对于金融行业而言
 
 ## 📚 引用 <a name="cite"></a> 
 
-如果您在研究中使用了Fin-GAIA，请引用我们的论文。
+如果您在研究中使用了FinGAIA，请引用我们的论文。
 
 ```bibtex
-@article{Fin-GAIA,
-  title={Fin-GAIA：一个用于评估金融领域 AI 代理的基准测试},
-  author={Fin-GAIA Team},
-  year={2024},
-  journal={arXiv preprint}
+@article{zeng2025fingaia,
+  title={FinGAIA: A Chinese Benchmark for AI Agents in Real-World Financial Domain},
+  author={Zeng, Lingfeng and Lou, Fangqi and Wang, Zixuan and Xu, Jiajie and Niu, Jinyi and Li, Mengping and Dong, Yifan and Qi, Qi and Zhang, Wei and Yang, Ziwei and others},
+  journal={arXiv preprint arXiv:2507.17186},
+  year={2025}
 }
 ```

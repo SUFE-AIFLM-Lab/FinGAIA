@@ -3,8 +3,8 @@
   
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Version: 1.0](https://img.shields.io/badge/Version-1.0-blue.svg) ![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)                                                                                                            
 
-[📃Paper](https://arxiv.org/abs/2507.17186)
-[🌐Data](https://huggingface.co/datasets/SUFE-AIFLM-Lab/FinGAIA)
+<!-- 论文链接和数据 -->
+[📃论文](https://arxiv.org/abs/2507.17186) | [🌐数据](https://huggingface.co/datasets/SUFE-AIFLM-Lab/FinGAIA)
 
 [简体中文](./README.md) | [English](./README_EN.md) 
 </div>
@@ -40,14 +40,49 @@ For a long time, AI evaluation has been largely confined to isolated knowledge q
 * **Lack of Domain Specificity in General Agent Benchmarks**: Mainstream benchmarks like GAIA and AgentBench lack consideration for the professionalism, data dynamism, and strong compliance constraints of the financial domain.
 * **Limitations of Task Singularity in Financial Domain Benchmarks**: Benchmarks such as Fin-Eval and FinQA are mostly limited to basic levels like Q&A and knowledge understanding, making it difficult to test AI's complex multi-step planning and tool collaboration capabilities in real financial workflows.
 * **Absence of End-to-End Agent Framework Evaluation**: Existing research mostly focuses on the performance of underlying large models or single plugins, lacking a systematic evaluation of the overall performance of a complete AI Agent framework in business processes.
-To address these challenges, Fin-GAIA is designed to build a three-level layered capability evaluation system, covering three difficulty levels and eight typical financial business scenarios, corresponding to the agent's capability requirements at basic understanding, analytical decision-making, and strategic reasoning levels, respectively.
+To address these challenges, FinGAIA is designed to build a three-level layered capability evaluation system, covering three difficulty levels and eight typical financial business scenarios, corresponding to the agent's capability requirements at basic understanding, analytical decision-making, and strategic reasoning levels, respectively.
 
 ### 🔬 Scenario Applications <a name="application"></a> 
-FinGAIA comprises 407 tasks, covering seven major financial sub-fields: securities, funds, banking, insurance, futures, trusts, and asset management, ensuring comprehensiveness of the evaluation. These tasks are designed based on extensive discussions with financial domain experts and constructed from real-world financial data, undergoing professional screening and structured processing to ensure their authenticity, relevance, and evaluation effectiveness.
-<div align="left">
-  <img src="image/行业占比.png" width="400px" height="450px"/>
+#### grading system
+FinGAIA employs a hierarchical system in task design, categorizing problems into three difficulty levels based on task complexity, the number of required steps, the depth of tool combinations, and the dimensions of financial reasoning.
+
+<div align="middle">
+  <img src="image/Level123.jpg" width="400px" height="450px"/>
   <br />
   <br /></div>
+
+#### data source
+The data foundation of FinGAIA encompasses a diverse range of authoritative and real-world scenario data, ensuring the professionalism and traceability of the issues addressed. It primarily includes the following sources:
+<div align="middle">
+  <img src="image/数据来源.png" width="400px" height="450px"/>
+  <br />
+  <br /></div>
+
+#### Tool classification
+FinGAIA requires the system to map the four core financial competencies to underlying foundational skills, including web browsing (obtaining real-time financial data), multi type file processing, multimodal capabilities, coding capabilities, and computing capabilities. In addition, the system needs to have the ability to correctly understand problem semantics, multi-step logical reasoning, and collaborative tool calling, such as extracting data from financial reports and analyzing the reasons for indicator changes in combination with market news dynamics.
+
+<div align="middle">
+  <img src="image/工具分类.png" width="400px" height="450px"/>
+  <br />
+  <br /></div>
+
+#### file type
+In terms of file processing capabilities, FinGAIA requires agents to be able to handle multiple types of file data, including:
+CSV，
+XML，
+JSON, 
+JSONLD，
+PowerPoint，
+Word，
+Text， 
+MP3，
+PDB。
+<div align="middle">
+  <img src="image/文件类型.png" width="400px" height="450px"/>
+  <br />
+  <br /></div>
+
+
 
 | Scenario Depth        | Financial Scenario                  | Questions |
 |-----------------------|-------------------------------------|-----------|
@@ -64,10 +99,6 @@ FinGAIA comprises 407 tasks, covering seven major financial sub-fields: securiti
 |                       |   All                               | 133       |
 | **FinGAIA** | **All** | **407** |
 
-We adopt a layered evaluation framework, dividing tasks into basic business analysis, asset decision support, and strategic risk management, corresponding to different cognitive complexity and operational requirements.
-Level 1: Basic Business Analysis Layer, focusing on evaluating the agent's ability to process basic financial knowledge and multi-modal financial information;
-Level 2: Asset Decision Support Layer, focusing on information integration, logical reasoning, and tool usage for tasks of moderate complexity;
-Level 3: Strategic Risk Management Layer, for high-complexity, multi-tool collaboration, and strategy planning tasks, comprehensively assessing the model's reasoning capabilities and professionalism in real financial contexts. (Financial sub-domains + Eight scenario examples)
 
 #### Customer Data Analytics <a name="cda"></a>
 Customer Data Analytics primarily involves reviewing customer information to understand their data. The core of this work is to identify patterns and insights that inform targeted marketing strategies, product development, and personalized customer experiences. Through this analysis, financial institutions can optimize their offerings and build stronger customer relationships. Below is an example of a customer data analytics task:
@@ -169,7 +200,7 @@ Solution Steps: 1. Search Eastmoney.com. 2. Open Eastmoney.com. 3. Navigate to D
 
 ## 🏆 Performance Evaluation 
 ### Core Capability Assessment <a name="cca"></a>
-FinGAIA systematically integrates industry knowledge, tool utilization, and task complexity as three core dimensions, covering the entire financial workflow from basic information retrieval, multimodal document analysis, to code-based computation and coordinated multi-tool, multi-step decision-making. Solving Fin-GAIA tasks requires AI agents to possess and coordinate various underlying capabilities.
+FinGAIA systematically integrates industry knowledge, tool utilization, and task complexity as three core dimensions, covering the entire financial workflow from basic information retrieval, multimodal document analysis, to code-based computation and coordinated multi-tool, multi-step decision-making. Solving FinGAIA tasks requires AI agents to possess and coordinate various underlying capabilities.
 
 <div align="center">
   <img src="image/能力占比.png" width="550px" height="500px"/>
@@ -229,7 +260,7 @@ Under the strategic risk management scenario, three key financial scenarios are 
 
 ## 🚀 Future Outlook <a name="future"></a> 
 
-The test results of Fin-GAIA send a clear signal: for the financial industry, simply improving the knowledge base of large language models is no longer enough. How to enable models to learn to skillfully and collaboratively use various analytical tools, like humans, is the key to determining whether they can become reliable productivity.
+The test results of FinGAIA send a clear signal: for the financial industry, simply improving the knowledge base of large language models is no longer enough. How to enable models to learn to skillfully and collaboratively use various analytical tools, like humans, is the key to determining whether they can become reliable productivity.
 We plan to:
 
 **Open Dataset:** Release 150 annotated developer problem sets.
@@ -243,13 +274,13 @@ We sincerely invite colleagues from the industry to jointly explore innovative p
 
 ## 📚 Citation <a name="cite"></a> 
 
-If you use Fin-GAIA in your research, please cite our paper.
+If you use FinGAIA in your research, please cite our paper.
 
 ```bibtex
-@article{Fin-GAIA,
-  title={Fin-GAIA：A Benchmark for Evaluating AI Agents in the Financial Domain},
-  author={Fin-GAIA Team},
-  year={2024},
-  journal={arXiv preprint}
+@article{zeng2025fingaia,
+  title={FinGAIA: A Chinese Benchmark for AI Agents in Real-World Financial Domain},
+  author={Zeng, Lingfeng and Lou, Fangqi and Wang, Zixuan and Xu, Jiajie and Niu, Jinyi and Li, Mengping and Dong, Yifan and Qi, Qi and Zhang, Wei and Yang, Ziwei and others},
+  journal={arXiv preprint arXiv:2507.17186},
+  year={2025}
 }
 ```
